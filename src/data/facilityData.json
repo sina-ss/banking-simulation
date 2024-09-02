@@ -1,0 +1,108 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "createdDate": "2024-04-28T11:57:17.315Z",
+            "name": "وام ازدواج",
+            "repaymentType": [
+                {
+                    "name": "120 ماهه",
+                    "value": 120
+                }
+            ],
+            "amount": 3000000000,
+            "percentageRate": 4,
+            "penaltyRate": 3.5
+        },
+        {
+            "id": "4",
+            "createdDate": "2021-12-10T08:15:00.987Z",
+            "name": "وام تحصیلی",
+            "repaymentType": [
+                {
+                    "name": "84 ماهه",
+                    "value": 84
+                }
+            ],
+            "amount": 2000000000,
+            "interestRate": 3.8,
+            "penaltyRate": 3.5
+        },
+        {
+            "id": "5",
+            "createdDate": "2020-08-05T16:20:30.456Z",
+            "name": "وام تجاری",
+            "repaymentType": [
+                {
+                    "name": "36 ماهه",
+                    "value": 36
+                }
+            ],
+            "amount": 4000000000,
+            "interestRate": 22,
+            "penaltyRate": 3.5
+        },
+        {
+            "id": "6",
+            "createdDate": "2019-04-15T10:10:10.789Z",
+            "name": "وام شخصی",
+            "repaymentType": [
+                {
+                    "name": "6 ماهه",
+                    "value": 6
+                },
+                {
+                    "name": "12 ماهه",
+                    "value": 12
+                },
+                {
+                    "name": "24 ماهه",
+                    "value": 24
+                },
+                {
+                    "name": "48 ماهه",
+                    "value": 48
+                }
+            ],
+            "amount": 1000000000,
+            "interestRate": 18,
+            "penaltyRate": 3.5
+        },
+        {
+            "id": "7",
+            "createdDate": "2018-02-20T14:25:45.321Z",
+            "name": "وام خرید خودرو",
+            "repaymentType": [
+                {
+                    "name": "72 ماهه",
+                    "value": 72
+                },
+                {
+                    "name": "36 ماهه",
+                    "value": 36
+                }
+            ],
+            "amount": 2500000000,
+            "interestRate": 20,
+            "penaltyRate": 3.5
+        },
+        {
+            "id": "8",
+            "createdDate": "2017-11-30T09:40:20.654Z",
+            "name": "وام تعمیرات منزل",
+            "repaymentType": [
+                {
+                    "name": "24 ماهه",
+                    "value": 24
+                },
+                {
+                    "name": "12 ماهه",
+                    "value": 12
+                }
+            ],
+            "amount": 1500000000,
+            "interestRate": 8,
+            "penaltyRate": 3.5
+        }
+    ]
+}
