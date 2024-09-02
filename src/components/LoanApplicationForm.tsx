@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,8 +30,8 @@ import {
 
 import { LoanFacility } from "@/types/types";
 import loanFacilitiesData from "@/data/facilityData.json";
-import { TEXT } from "@/constants/textConstants";
 import { formSchema } from "@/schema/form";
+import { TEXT } from "@/constants/textConstants";
 const loanFacilities: LoanFacility[] = loanFacilitiesData.data;
 
 type FormValues = z.infer<typeof formSchema>;
@@ -146,9 +147,7 @@ const LoanApplicationForm: React.FC = () => {
               name="facilityType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.FACILITY_TYPE.LABEL}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.FACILITY_TYPE.LABEL}</FormLabel>
                   <Select
                     onValueChange={(value) => {
                       field.onChange(value);
@@ -160,11 +159,7 @@ const LoanApplicationForm: React.FC = () => {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue
-                          placeholder={
-                            TEXT.HOME.LOAN_FORM.FACILITY_TYPE.PLACEHOLDER
-                          }
-                        />
+                        <SelectValue placeholder={TEXT.HOME.LOAN_FORM.FACILITY_TYPE.PLACEHOLDER} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -190,9 +185,7 @@ const LoanApplicationForm: React.FC = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NAME}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NAME}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -205,9 +198,7 @@ const LoanApplicationForm: React.FC = () => {
               name="surname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.SURNAME}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.SURNAME}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -220,9 +211,7 @@ const LoanApplicationForm: React.FC = () => {
               name="nationalCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NATIONAL_CODE}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NATIONAL_CODE}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -235,9 +224,7 @@ const LoanApplicationForm: React.FC = () => {
               name="dateOfBirth"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.DATE_OF_BIRTH}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.DATE_OF_BIRTH}</FormLabel>
                   <FormControl>
                     <Input type="date" {...field} />
                   </FormControl>
@@ -250,9 +237,7 @@ const LoanApplicationForm: React.FC = () => {
               name="contactNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.CONTACT_NUMBER}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.CONTACT_NUMBER}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -271,9 +256,7 @@ const LoanApplicationForm: React.FC = () => {
               name="accountNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.BANK_INFO.ACCOUNT_NUMBER}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.BANK_INFO.ACCOUNT_NUMBER}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -286,9 +269,7 @@ const LoanApplicationForm: React.FC = () => {
               name="shabaNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.BANK_INFO.SHABA_NUMBER}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.BANK_INFO.SHABA_NUMBER}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -301,9 +282,7 @@ const LoanApplicationForm: React.FC = () => {
               name="averageAnnualBalance"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.BANK_INFO.AVERAGE_BALANCE}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.BANK_INFO.AVERAGE_BALANCE}</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -327,9 +306,7 @@ const LoanApplicationForm: React.FC = () => {
               name="amount"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.LOAN_DETAILS.AMOUNT}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.LOAN_DETAILS.AMOUNT}</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -347,21 +324,14 @@ const LoanApplicationForm: React.FC = () => {
               name="repaymentPeriod"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {TEXT.HOME.LOAN_FORM.LOAN_DETAILS.REPAYMENT_PERIOD}
-                  </FormLabel>
+                  <FormLabel>{TEXT.HOME.LOAN_FORM.LOAN_DETAILS.REPAYMENT_PERIOD}</FormLabel>
                   <Select
                     onValueChange={(value) => field.onChange(value)}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue
-                          placeholder={
-                            TEXT.HOME.LOAN_FORM.LOAN_DETAILS
-                              .REPAYMENT_PLACEHOLDER
-                          }
-                        />
+                        <SelectValue placeholder={TEXT.HOME.LOAN_FORM.LOAN_DETAILS.REPAYMENT_PLACEHOLDER} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -387,26 +357,11 @@ const LoanApplicationForm: React.FC = () => {
             <CardTitle>{TEXT.HOME.LOAN_FORM.RESULT.TITLE}</CardTitle>
             {calculatedLoan && (
               <div>
-                <p>
-                  {TEXT.HOME.LOAN_FORM.RESULT.MONTHLY_PAYMENT}{" "}
-                  {calculatedLoan.monthlyPayment} ریال
-                </p>
-                <p>
-                  {TEXT.HOME.LOAN_FORM.RESULT.TOTAL_PAYMENT}{" "}
-                  {calculatedLoan.totalPayment} ریال
-                </p>
-                <p>
-                  {TEXT.HOME.LOAN_FORM.RESULT.TOTAL_INTEREST}{" "}
-                  {calculatedLoan.totalInterest} ریال
-                </p>
-                <p>
-                  {TEXT.HOME.LOAN_FORM.RESULT.ANNUAL_INTEREST_RATE}{" "}
-                  {calculatedLoan.annualInterestRate}%
-                </p>
-                <p>
-                  {TEXT.HOME.LOAN_FORM.RESULT.LATE_FEE} {calculatedLoan.lateFee}{" "}
-                  ریال
-                </p>
+                <p>{TEXT.HOME.LOAN_FORM.RESULT.MONTHLY_PAYMENT} {calculatedLoan.monthlyPayment} ریال</p>
+                <p>{TEXT.HOME.LOAN_FORM.RESULT.TOTAL_PAYMENT} {calculatedLoan.totalPayment} ریال</p>
+                <p>{TEXT.HOME.LOAN_FORM.RESULT.TOTAL_INTEREST} {calculatedLoan.totalInterest} ریال</p>
+                <p>{TEXT.HOME.LOAN_FORM.RESULT.ANNUAL_INTEREST_RATE} {calculatedLoan.annualInterestRate}%</p>
+                <p>{TEXT.HOME.LOAN_FORM.RESULT.LATE_FEE} {calculatedLoan.lateFee} ریال</p>
               </div>
             )}
             <p>{TEXT.HOME.LOAN_FORM.RESULT.SUCCESS_MESSAGE}</p>
@@ -419,36 +374,34 @@ const LoanApplicationForm: React.FC = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="w-[350px]">
-          <CardHeader>
-            <CardTitle>{TEXT.HOME.LOAN_FORM.TITLE}</CardTitle>
-          </CardHeader>
-          <CardContent>{renderStep()}</CardContent>
-          <CardFooter className="flex justify-between">
-            {step > 0 && (
-              <Button type="button" onClick={() => setStep(step - 1)}>
-                {TEXT.HOME.LOAN_FORM.BUTTONS.PREVIOUS}
-              </Button>
-            )}
-            {step < 4 ? (
-              <Button type="submit">
-                {step === 3
-                  ? TEXT.HOME.LOAN_FORM.BUTTONS.CALCULATE_AND_SUBMIT
-                  : TEXT.HOME.LOAN_FORM.BUTTONS.NEXT}
-              </Button>
-            ) : (
-              <Button
-                type="button"
-                onClick={() => console.log("Form finalized")}
-              >
-                {TEXT.HOME.LOAN_FORM.BUTTONS.FINAL_SUBMIT}
-              </Button>
-            )}
-          </CardFooter>
-        </Card>
-      </form>
-    </Form>
+    <form onSubmit={form.handleSubmit(onSubmit)}>
+      <Card className="w-[350px]">
+        <CardHeader>
+          <CardTitle>{TEXT.HOME.LOAN_FORM.TITLE}</CardTitle>
+        </CardHeader>
+        <CardContent>{renderStep()}</CardContent>
+        <CardFooter className="flex justify-between">
+          {step > 0 && (
+            <Button type="button" onClick={() => setStep(step - 1)}>
+              {TEXT.HOME.LOAN_FORM.BUTTONS.PREVIOUS}
+            </Button>
+          )}
+          {step < 4 ? (
+            <Button type="submit">
+              {step === 3 ? TEXT.HOME.LOAN_FORM.BUTTONS.CALCULATE_AND_SUBMIT : TEXT.HOME.LOAN_FORM.BUTTONS.NEXT}
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              onClick={() => console.log("Form finalized")}
+            >
+              {TEXT.HOME.LOAN_FORM.BUTTONS.FINAL_SUBMIT}
+            </Button>
+          )}
+        </CardFooter>
+      </Card>
+    </form>
+  </Form>
   );
 };
 
