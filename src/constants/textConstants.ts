@@ -1,11 +1,68 @@
 export const TEXT = {
-    COMMON: {
-        TITLE: "بلو",
-        DESCRIPTION: "بلو؛ بانک ولی دوست‌داشتنی",
+  COMMON: {
+    TITLE: "بلو",
+    DESCRIPTION: "بلو؛ بانک ولی دوست‌داشتنی",
+    HOME_TITLE: "دریافت تسهیلات",
+    LOANS_TITLE: "لیست تسهیلات",
+  },
+  HOME: {
+    HERO_TITLE: "دریافت تسهیلات",
+    HERO_SUB_TITLE: "از همیشه",
+    WORDS: ["راحت‌تر", "سریع‌تر", "بهتر"],
+    LOAN_FORM: {
+      TITLE: "درخواست تسهیلات",
+      FACILITY_TYPE: {
+        LABEL: "نوع تسهیلات",
+        PLACEHOLDER: "انتخاب نوع تسهیلات",
+      },
+      PERSONAL_INFO: {
+        TITLE: "اطلاعات شخصی",
+        NAME: "نام",
+        SURNAME: "نام خانوادگی",
+        NATIONAL_CODE: "کد ملی",
+        DATE_OF_BIRTH: "تاریخ تولد",
+        CONTACT_NUMBER: "شماره تماس",
+      },
+      BANK_INFO: {
+        TITLE: "اطلاعات بانکی",
+        ACCOUNT_NUMBER: "شماره حساب",
+        SHABA_NUMBER: "شماره شبا",
+        AVERAGE_BALANCE: "میانگین موجودی سالانه (ریال)",
+      },
+      LOAN_DETAILS: {
+        TITLE: "جزئیات وام",
+        AMOUNT: "مبلغ وام (ریال)",
+        REPAYMENT_PERIOD: "دوره بازپرداخت",
+        REPAYMENT_PLACEHOLDER: "انتخاب دوره بازپرداخت",
+      },
+      RESULT: {
+        TITLE: "نتیجه درخواست",
+        MONTHLY_PAYMENT: "مبلغ قسط ماهانه:",
+        TOTAL_PAYMENT: "کل مبلغ بازپرداخت:",
+        TOTAL_INTEREST: "کل سود:",
+        ANNUAL_INTEREST_RATE: "نرخ سود سالانه:",
+        LATE_FEE: "جریمه دیرکرد:",
+        SUCCESS_MESSAGE: "درخواست شما با موفقیت ثبت شد.",
+      },
+      BUTTONS: {
+        PREVIOUS: "قبلی",
+        NEXT: "بعدی",
+        CALCULATE_AND_SUBMIT: "محاسبه و ثبت",
+        FINAL_SUBMIT: "ثبت نهایی",
+      },
+      ERROR: {
+        FACILITY_TYPE: "لطفاً نوع تسهیلات را انتخاب کنید",
+        NAME: "نام الزامی است",
+        SURNAME: "نام خانوادگی الزامی است",
+        NATIONAL_CODE: "کد ملی باید 10 رقم باشد",
+        DATE_OF_BIRTH: "تاریخ تولد الزامی است",
+        CONTACT_NUMBER: "شماره تماس باید حداقل 10 رقم باشد",
+        ACCOUNT_NUMBER: "شماره حساب الزامی است",
+        SHABA_NUMBER: "شماره شبا باید 24 رقم باشد",
+        AVERAGE_ANNUAL_BALANCE: "میانگین موجودی سالانه باید عدد مثبت باشد",
+        AMOUNT: "مبلغ وام باید بیشتر از صفر باشد",
+        REPAYMENT_PERIOD: "دوره بازپرداخت باید بیشتر از صفر باشد",
+      },
     },
-    HOME: {
-        HERO_TITLE: "دریافت تسهیلات",
-        HERO_SUB_TITLE: "از همیشه",
-        WORDS: ["راحت‌تر", "سریع‌تر", "بهتر"],
-    }
+  },
 };

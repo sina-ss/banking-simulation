@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,37 +29,9 @@ import {
 
 import { LoanFacility } from "@/types/types";
 import loanFacilitiesData from "@/data/facilityData.json";
+import { TEXT } from "@/constants/textConstants";
+import { formSchema } from "@/schema/form";
 const loanFacilities: LoanFacility[] = loanFacilitiesData.data;
-
-// Define the form schema
-const formSchema = z.object({
-  facilityType: z.string().nonempty("لطفاً نوع تسهیلات را انتخاب کنید"),
-  name: z.string().nonempty("نام الزامی است"),
-  surname: z.string().nonempty("نام خانوادگی الزامی است"),
-  nationalCode: z.string().length(10, "کد ملی باید 10 رقم باشد"),
-  dateOfBirth: z.string().nonempty("تاریخ تولد الزامی است"),
-  contactNumber: z.string().min(10, "شماره تماس باید حداقل 10 رقم باشد"),
-  accountNumber: z.string().nonempty("شماره حساب الزامی است"),
-  shabaNumber: z.string().length(24, "شماره شبا باید 24 رقم باشد"),
-  averageAnnualBalance: z
-    .string()
-    .refine(
-      (val) => !isNaN(parseFloat(val)) && parseFloat(val) >= 0,
-      "میانگین موجودی سالانه باید عدد مثبت باشد"
-    ),
-  amount: z
-    .string()
-    .refine(
-      (val) => !isNaN(parseFloat(val)) && parseFloat(val) > 0,
-      "مبلغ وام باید بیشتر از صفر باشد"
-    ),
-  repaymentPeriod: z
-    .string()
-    .refine(
-      (val) => !isNaN(parseInt(val)) && parseInt(val) > 0,
-      "دوره بازپرداخت باید بیشتر از صفر باشد"
-    ),
-});
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -169,13 +140,15 @@ const LoanApplicationForm: React.FC = () => {
       case 0:
         return (
           <>
-            <CardTitle>انتخاب نوع تسهیلات</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.FACILITY_TYPE.LABEL}</CardTitle>
             <FormField
               control={form.control}
               name="facilityType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>نوع تسهیلات</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.FACILITY_TYPE.LABEL}
+                  </FormLabel>
                   <Select
                     onValueChange={(value) => {
                       field.onChange(value);
@@ -187,7 +160,11 @@ const LoanApplicationForm: React.FC = () => {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="انتخاب نوع تسهیلات" />
+                        <SelectValue
+                          placeholder={
+                            TEXT.HOME.LOAN_FORM.FACILITY_TYPE.PLACEHOLDER
+                          }
+                        />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -207,13 +184,15 @@ const LoanApplicationForm: React.FC = () => {
       case 1:
         return (
           <>
-            <CardTitle>اطلاعات شخصی</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.PERSONAL_INFO.TITLE}</CardTitle>
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>نام</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NAME}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -226,7 +205,9 @@ const LoanApplicationForm: React.FC = () => {
               name="surname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>نام خانوادگی</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.SURNAME}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -239,7 +220,9 @@ const LoanApplicationForm: React.FC = () => {
               name="nationalCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>کد ملی</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.NATIONAL_CODE}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -252,7 +235,9 @@ const LoanApplicationForm: React.FC = () => {
               name="dateOfBirth"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>تاریخ تولد</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.DATE_OF_BIRTH}
+                  </FormLabel>
                   <FormControl>
                     <Input type="date" {...field} />
                   </FormControl>
@@ -265,7 +250,9 @@ const LoanApplicationForm: React.FC = () => {
               name="contactNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>شماره تماس</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.PERSONAL_INFO.CONTACT_NUMBER}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -278,13 +265,15 @@ const LoanApplicationForm: React.FC = () => {
       case 2:
         return (
           <>
-            <CardTitle>اطلاعات بانکی</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.BANK_INFO.TITLE}</CardTitle>
             <FormField
               control={form.control}
               name="accountNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>شماره حساب</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.BANK_INFO.ACCOUNT_NUMBER}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -297,7 +286,9 @@ const LoanApplicationForm: React.FC = () => {
               name="shabaNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>شماره شبا</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.BANK_INFO.SHABA_NUMBER}
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -310,7 +301,9 @@ const LoanApplicationForm: React.FC = () => {
               name="averageAnnualBalance"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>میانگین موجودی سالانه (ریال)</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.BANK_INFO.AVERAGE_BALANCE}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -328,13 +321,15 @@ const LoanApplicationForm: React.FC = () => {
       case 3:
         return (
           <>
-            <CardTitle>جزئیات وام</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.LOAN_DETAILS.TITLE}</CardTitle>
             <FormField
               control={form.control}
               name="amount"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>مبلغ وام (ریال)</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.LOAN_DETAILS.AMOUNT}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -352,14 +347,21 @@ const LoanApplicationForm: React.FC = () => {
               name="repaymentPeriod"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>دوره بازپرداخت</FormLabel>
+                  <FormLabel>
+                    {TEXT.HOME.LOAN_FORM.LOAN_DETAILS.REPAYMENT_PERIOD}
+                  </FormLabel>
                   <Select
                     onValueChange={(value) => field.onChange(value)}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="انتخاب دوره بازپرداخت" />
+                        <SelectValue
+                          placeholder={
+                            TEXT.HOME.LOAN_FORM.LOAN_DETAILS
+                              .REPAYMENT_PLACEHOLDER
+                          }
+                        />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -382,17 +384,32 @@ const LoanApplicationForm: React.FC = () => {
       case 4:
         return (
           <>
-            <CardTitle>نتیجه درخواست</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.RESULT.TITLE}</CardTitle>
             {calculatedLoan && (
               <div>
-                <p>مبلغ قسط ماهانه: {calculatedLoan.monthlyPayment} ریال</p>
-                <p>کل مبلغ بازپرداخت: {calculatedLoan.totalPayment} ریال</p>
-                <p>کل سود: {calculatedLoan.totalInterest} ریال</p>
-                <p>نرخ سود سالانه: {calculatedLoan.annualInterestRate}%</p>
-                <p>جریمه دیرکرد: {calculatedLoan.lateFee} ریال</p>
+                <p>
+                  {TEXT.HOME.LOAN_FORM.RESULT.MONTHLY_PAYMENT}{" "}
+                  {calculatedLoan.monthlyPayment} ریال
+                </p>
+                <p>
+                  {TEXT.HOME.LOAN_FORM.RESULT.TOTAL_PAYMENT}{" "}
+                  {calculatedLoan.totalPayment} ریال
+                </p>
+                <p>
+                  {TEXT.HOME.LOAN_FORM.RESULT.TOTAL_INTEREST}{" "}
+                  {calculatedLoan.totalInterest} ریال
+                </p>
+                <p>
+                  {TEXT.HOME.LOAN_FORM.RESULT.ANNUAL_INTEREST_RATE}{" "}
+                  {calculatedLoan.annualInterestRate}%
+                </p>
+                <p>
+                  {TEXT.HOME.LOAN_FORM.RESULT.LATE_FEE} {calculatedLoan.lateFee}{" "}
+                  ریال
+                </p>
               </div>
             )}
-            <p>درخواست شما با موفقیت ثبت شد.</p>
+            <p>{TEXT.HOME.LOAN_FORM.RESULT.SUCCESS_MESSAGE}</p>
           </>
         );
       default:
@@ -405,25 +422,27 @@ const LoanApplicationForm: React.FC = () => {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <Card className="w-[350px]">
           <CardHeader>
-            <CardTitle>درخواست تسهیلات</CardTitle>
+            <CardTitle>{TEXT.HOME.LOAN_FORM.TITLE}</CardTitle>
           </CardHeader>
           <CardContent>{renderStep()}</CardContent>
           <CardFooter className="flex justify-between">
             {step > 0 && (
               <Button type="button" onClick={() => setStep(step - 1)}>
-                قبلی
+                {TEXT.HOME.LOAN_FORM.BUTTONS.PREVIOUS}
               </Button>
             )}
             {step < 4 ? (
               <Button type="submit">
-                {step === 3 ? "محاسبه و ثبت" : "بعدی"}
+                {step === 3
+                  ? TEXT.HOME.LOAN_FORM.BUTTONS.CALCULATE_AND_SUBMIT
+                  : TEXT.HOME.LOAN_FORM.BUTTONS.NEXT}
               </Button>
             ) : (
               <Button
                 type="button"
                 onClick={() => console.log("Form finalized")}
               >
-                ثبت نهایی
+                {TEXT.HOME.LOAN_FORM.BUTTONS.FINAL_SUBMIT}
               </Button>
             )}
           </CardFooter>
